@@ -12,10 +12,6 @@ export class AuthService {
 
   private userUrl = `${environment.user}`;
 
-  getBanners(): Observable<User[]> {
-    return this.http.get<User[]>(this.userUrl);
-  }
-
   login(param:any): Observable<any>{
     return this.http.get<any>(this.userUrl);
   }

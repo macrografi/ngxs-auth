@@ -1,6 +1,7 @@
 export interface AuthStateModel {
   token: string | null;
-  username: string | null;
+  refreshToken?: string;
+  username?: string | null;
 }
 
 export class Login {

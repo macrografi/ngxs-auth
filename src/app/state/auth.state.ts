@@ -21,6 +21,11 @@ export class AuthState {
   }
 
   @Selector()
+  static refreshToken(state: AuthStateModel) {
+    return state.refreshToken;
+  }
+
+  @Selector()
   static isAuthenticated(state: AuthStateModel): boolean {
     return !!state.token;
   }
@@ -29,7 +34,6 @@ export class AuthState {
 
   @Action(Login)
   login(ctx: StateContext<AuthStateModel>, action: Login) {
-
     return this.authService.login(action.payload).pipe(
       tap((result: [{ token: string }]) => {
         result.forEach(
